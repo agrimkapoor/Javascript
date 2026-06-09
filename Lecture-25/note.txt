@@ -1,0 +1,49 @@
+execution context 
+
+Two Types
+1. Global Execution Context (GEC)  — created first, always one
+2. Function Execution Context(FEC) — created every time a function is called
+
+JS uses a call stack to manage execution contexts (LIFO)
+
+
+CODE : 
+    let x = 10;
+
+    function outer() {
+    let y = 20;
+
+    function inner() {
+        let z = 30;
+        console.log(x + y + z);  // 60
+    }
+
+    inner();
+    }
+    outer();
+
+Phase 1 — Memory Creation Phase (before any code runs)
+Global Execution Context created
+├── x       = undefined  (hoisted)
+├── outer   = fn         (hoisted)
+└── this    = window object (IN BROWSER) this is set to global exec context
+
+x = 10          ← assigned
+
+outer() called  → new Function Execution Context + execution thread for this
+├── y     = undefined  (hoisted)
+├── inner = fn         (hoisted)
+└── this  = window
+
+  y = 20        ← assigned
+
+  inner() called → new Function Execution Context
+  ├── z    = undefined (hoisted)
+  └── this = window
+
+    z = 30      ← assigned
+    console.log(60)
+
+  inner() done  → FEC popped off stack
+outer() done    → FEC popped off stack
+Global done     → GEC popped off stack

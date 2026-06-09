@@ -1,0 +1,9 @@
+JS was invented to run inside browsers. But over time people wanted to run it outside browsers too (like Python runs anywhere). That's where Node.js came in. 
+
+The V8 engine is the actual program that reads your JS and runs it. Google built it for Chrome waala browser. It's both an interpreter and a JIT compiler (it interprets first, then compiles). Node.js literally ripped V8 out of Chrome and bundled it into a standalone program you can run on your laptop. That's all Node.js is at its core
+
+node.js is a runtime environment which has the v8 enginge so js can be runned outside browser
+
+to run the js file node test.js
+
+A browser is a program that lets you visit websites. You type a URL, it fetches the webpage files from the internet, and displays them visually.Google is a company and chrome is browser made by them. edge browser is made by microsoft
